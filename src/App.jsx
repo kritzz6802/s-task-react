@@ -24,12 +24,10 @@ const CharacterSearch = () => {
     }
   }, [searchInput]);
 
-  const handleInputChange = (e) => {
-    setSearchInput(e.target.value);
-  };
-
   const handleSearch = () => {
+    if(searchInput!==''){
     fetchData();
+    }
   };
 
   return (
@@ -41,7 +39,7 @@ const CharacterSearch = () => {
             className="search-input"
             type="text"
             value={searchInput}
-            onChange={handleInputChange}
+            onChange={(e)=>setSearchInput(e.target.value)}
             placeholder="Search characters"
           />
           <button className="search-button" onClick={handleSearch}>
